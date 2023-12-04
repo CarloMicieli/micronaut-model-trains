@@ -1,0 +1,62 @@
+/*
+ *   Copyright (c) 2023 (C) Carlo Micieli
+ *
+ *    Licensed to the Apache Software Foundation (ASF) under one
+ *    or more contributor license agreements.  See the NOTICE file
+ *    distributed with this work for additional information
+ *    regarding copyright ownership.  The ASF licenses this file
+ *    to you under the Apache License, Version 2.0 (the
+ *    "License"); you may not use this file except in compliance
+ *    with the License.  You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing,
+ *    software distributed under the License is distributed on an
+ *    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ *    KIND, either express or implied.  See the License for the
+ *    specific language governing permissions and limitations
+ *    under the License.
+ */
+package io.github.carlomicieli.trains.catalog.brands;
+
+import io.github.carlomicieli.trains.data.Address;
+import io.github.carlomicieli.trains.data.ContactInfo;
+import io.github.carlomicieli.trains.data.LocalizedText;
+import io.github.carlomicieli.trains.data.OrganizationEntityType;
+import io.github.carlomicieli.trains.data.Socials;
+import java.util.Objects;
+
+/**
+ * It represents a model railways manufacturer
+ * @param brandId the brand unique identifier (an url encoded string)
+ * @param name the brand name
+ * @param kind the brand activity
+ * @param status the brand status
+ * @param registeredCompanyName the registered company name for this brand
+ * @param organizationEntityType the organization entity type
+ * @param groupName the group name in case the brand is part of a group
+ * @param description the brand description
+ * @param address the main address
+ * @param contactInfo the contact info
+ * @param socials the social handlers
+ */
+public record Brand(
+        BrandId brandId,
+        String name,
+        BrandKind kind,
+        BrandStatus status,
+        String registeredCompanyName,
+        OrganizationEntityType organizationEntityType,
+        String groupName,
+        LocalizedText description,
+        Address address,
+        ContactInfo contactInfo,
+        Socials socials) {
+
+    public Brand {
+        Objects.requireNonNull(brandId);
+        Objects.requireNonNull(name);
+        Objects.requireNonNull(kind);
+    }
+}
