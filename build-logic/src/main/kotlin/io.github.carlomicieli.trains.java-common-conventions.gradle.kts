@@ -7,6 +7,7 @@
 plugins {
     // Apply the java Plugin to add support for Java.
     java
+    id("com.diffplug.spotless")
 }
 
 repositories {
@@ -35,5 +36,40 @@ testing {
 java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(21))
+    }
+}
+
+spotless {
+    java {
+        // optional: you can specify import groups directly
+        // note: you can use an empty string for all the imports you didn't specify explicitly,
+        // '|' to join group without blank line, and '\\#` prefix for static imports
+        importOrder("java|javax", "io.github.carlomicieli.trains", "", "\\#io.github.carlomicieli.trains", "\\#")
+        removeUnusedImports()
+
+        targetExclude(
+            "build/generated/aot*/**",
+            "build/generated/openapi/generateServerOpenApiApis/**",
+            "build/generated/openapi/generateServerOpenApiModels/**",
+        )
+
+        palantirJavaFormat("2.38.0")
+
+
+        formatAnnotations()  // fixes formatting of type annotations
+
+        licenseHeaderFile("${project.rootDir}/.spotless/header.txt")
+
+        toggleOffOn("fmt:off", "fmt:on")
+        indentWithSpaces()
+        trimTrailingWhitespace()
+        endWithNewline()
+    }
+
+    kotlinGradle {
+        endWithNewline()
+        ktlint()
+        indentWithSpaces()
+        trimTrailingWhitespace()
     }
 }
