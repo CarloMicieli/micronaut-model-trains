@@ -1,5 +1,5 @@
 /*
- *   Copyright (c) 2023-2023 (C) Carlo Micieli
+ *   Copyright (c) 2023 (C) Carlo Micieli
  *
  *    Licensed to the Apache Software Foundation (ASF) under one
  *    or more contributor license agreements.  See the NOTICE file
@@ -20,8 +20,20 @@
  */
 package io.github.carlomicieli.trains.app;
 
-class MessageUtils {
-    public static String getMessage() {
-        return "Hello      World!";
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import io.micronaut.runtime.EmbeddedApplication;
+import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
+import jakarta.inject.Inject;
+import org.junit.jupiter.api.Test;
+
+@MicronautTest
+public class AppTest {
+    @Inject
+    EmbeddedApplication<?> application;
+
+    @Test
+    void testItWorks() {
+        assertTrue(application.isRunning());
     }
 }

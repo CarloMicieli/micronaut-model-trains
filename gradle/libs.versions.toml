@@ -2,8 +2,14 @@
 # https://docs.gradle.org/current/userguide/platforms.html#sub::toml-dependencies-format
 [versions]
 record-builder = "37"
+slugify = "3.0.6"
+micronaut = "4.2.1"
 
 [libraries]
-spotless-plugin = "com.diffplug.spotless:spotless-plugin-gradle:6.23.3"
-record-builder-processor = { module = "io.soabase.record-builder:record-builder-processor", version.ref = "record-builder" }
 record-builder = { module = "io.soabase.record-builder:record-builder-core", version.ref = "record-builder" }
+record-builder-processor = { module = "io.soabase.record-builder:record-builder-processor", version.ref = "record-builder" }
+slugify = { module = "com.github.slugify:slugify", version.ref = "slugify" }
+spotless-plugin = "com.diffplug.spotless:spotless-plugin-gradle:6.23.3"
+shadow-plugin = "com.github.johnrengelman:shadow:8.1.1"
+micronaut-plugin = { module = "io.micronaut.gradle:micronaut-gradle-plugin", version.ref = "micronaut" }
+micronaut-aot-plugin = { module = "io.micronaut.gradle:micronaut-aot-plugin", version.ref = "micronaut" }

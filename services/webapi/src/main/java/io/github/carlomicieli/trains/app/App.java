@@ -20,8 +20,10 @@
  */
 package io.github.carlomicieli.trains.app;
 
+import io.micronaut.runtime.Micronaut;
+
 public class App {
     public static void main(String[] args) {
-        System.out.println("it works");
+        Micronaut.run(App.class, args);
     }
 }

@@ -1,5 +1,6 @@
 # This is a Gradle generated file for dependency locking.
 # Manual edits can break the build and are not advised.
 # This file is expected to be part of source control.
+com.github.slugify:slugify:3.0.6=compileClasspath
 io.soabase.record-builder:record-builder-core:37=compileClasspath
 empty=
