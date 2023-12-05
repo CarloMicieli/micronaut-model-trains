@@ -20,8 +20,8 @@
  */
 package io.github.carlomicieli.trains.catalog.railways;
 
+import io.github.carlomicieli.trains.data.Length;
 import io.soabase.recordbuilder.core.RecordBuilder;
-import java.math.BigDecimal;
 
 /**
  * It represents the total length of a railway network
@@ -29,4 +29,4 @@ import java.math.BigDecimal;
  * @param kilometers the total railway network in kilometers
  */
 @RecordBuilder
-public record RailwayTotalLength(BigDecimal miles, BigDecimal kilometers) {}
+public record RailwayTotalLength(Length miles, Length kilometers) {}

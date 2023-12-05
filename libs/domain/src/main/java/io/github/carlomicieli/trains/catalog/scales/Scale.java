@@ -23,7 +23,6 @@ package io.github.carlomicieli.trains.catalog.scales;
 import io.github.carlomicieli.trains.data.LocalizedText;
 import io.github.carlomicieli.trains.data.Metadata;
 import io.soabase.recordbuilder.core.RecordBuilder;
-import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -40,7 +39,7 @@ import java.util.List;
 public record Scale(
         ScaleId scaleId,
         String name,
-        BigDecimal ratio,
+        ScaleRatio ratio,
         ScaleGauge gauge,
         LocalizedText description,
         List<ScaleStandard> standards,

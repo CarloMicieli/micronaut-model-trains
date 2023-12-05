@@ -18,15 +18,22 @@
  *    specific language governing permissions and limitations
  *    under the License.
  */
-package io.github.carlomicieli.trains.catalog.catalogitems;
+package io.github.carlomicieli.trains.data;
 
-import io.github.carlomicieli.trains.data.Length;
-import io.soabase.recordbuilder.core.RecordBuilder;
+public enum MeasureUnit {
+    MILES("mi"),
+    MILLIMETERS("mm"),
+    METERS("m"),
+    INCHES("in"),
+    KILOMETERS("km");
 
-/**
- * the length over buffer of a rolling stock
- * @param inches the overall length in inches
- * @param millimeters the overall length in millimeters
- */
-@RecordBuilder
-public record LengthOverBuffers(Length inches, Length millimeters) {}
+    private final String symbol;
+
+    MeasureUnit(String symbol) {
+        this.symbol = symbol;
+    }
+
+    public String symbol() {
+        return symbol;
+    }
+}
