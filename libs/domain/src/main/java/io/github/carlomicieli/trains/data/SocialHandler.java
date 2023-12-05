@@ -20,17 +20,19 @@
  */
 package io.github.carlomicieli.trains.data;
 
+import java.net.URI;
+import java.util.Objects;
+
 /**
- * a group of social handlers
- * @param facebook a facebook handler
- * @param instagram a instagram handler
- * @param linkedin a linkedin handler
- * @param twitter a twitter handler
- * @param youtube a youtube handler
+ * A social network handler
+ * @param value the url encoded value
  */
-public record Socials(
-        SocialHandler facebook,
-        SocialHandler instagram,
-        SocialHandler linkedin,
-        SocialHandler twitter,
-        SocialHandler youtube) {}
+public record SocialHandler(URI value) {
+    public SocialHandler {
+        Objects.requireNonNull(value);
+    }
+
+    public static SocialHandler of(String value) {
+        return new SocialHandler(URI.create(value));
+    }
+}
