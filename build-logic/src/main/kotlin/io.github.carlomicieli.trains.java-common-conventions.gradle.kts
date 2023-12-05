@@ -101,13 +101,7 @@ spotless {
         importOrder("java|javax", "io.github.carlomicieli.trains", "", "\\#io.github.carlomicieli.trains", "\\#")
         removeUnusedImports()
 
-        targetExclude(
-            "build/generated/aot*/**",
-            "build/generated/openapi/generateServerOpenApiApis/**",
-            "build/generated/openapi/generateServerOpenApiModels/**",
-        )
-
-        palantirJavaFormat("2.38.0")
+        palantirJavaFormat("2.39.0")
 
         formatAnnotations()  // fixes formatting of type annotations
 
