@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
 import org.gradle.api.tasks.testing.logging.TestLogEvent.FAILED
 import org.gradle.api.tasks.testing.logging.TestLogEvent.PASSED
@@ -6,6 +8,23 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent.SKIPPED
 plugins {
     java
     id("com.diffplug.spotless")
+}
+
+configurations {
+    all {
+        exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
+    }
+    implementation {
+        resolutionStrategy {
+            failOnVersionConflict()
+        }
+    }
+}
+
+configurations {
+    compileClasspath {
+        resolutionStrategy.activateDependencyLocking()
+    }
 }
 
 repositories {
