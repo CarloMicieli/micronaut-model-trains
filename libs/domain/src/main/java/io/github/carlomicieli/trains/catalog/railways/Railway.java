@@ -22,6 +22,7 @@ package io.github.carlomicieli.trains.catalog.railways;
 
 import io.github.carlomicieli.trains.data.ContactInfo;
 import io.github.carlomicieli.trains.data.LocalizedText;
+import io.github.carlomicieli.trains.data.Metadata;
 import io.github.carlomicieli.trains.data.OrganizationEntityType;
 import io.github.carlomicieli.trains.data.Socials;
 import io.soabase.recordbuilder.core.RecordBuilder;
@@ -42,6 +43,7 @@ import java.util.List;
  * @param totalLength
  * @param contactInfo
  * @param socials
+ * @param metadata the railway metadata
  */
 @RecordBuilder
 public record Railway(
@@ -57,4 +59,5 @@ public record Railway(
         List<String> headquarters,
         RailwayTotalLength totalLength,
         ContactInfo contactInfo,
-        Socials socials) {}
+        Socials socials,
+        Metadata metadata) {}

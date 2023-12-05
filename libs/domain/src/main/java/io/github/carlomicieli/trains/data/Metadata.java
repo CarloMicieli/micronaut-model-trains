@@ -18,30 +18,16 @@
  *    specific language governing permissions and limitations
  *    under the License.
  */
-package io.github.carlomicieli.trains.catalog.scales;
+package io.github.carlomicieli.trains.data;
 
-import io.github.carlomicieli.trains.data.LocalizedText;
-import io.github.carlomicieli.trains.data.Metadata;
 import io.soabase.recordbuilder.core.RecordBuilder;
-import java.math.BigDecimal;
-import java.util.List;
+import java.time.ZonedDateTime;
 
 /**
- * It represents a rail transport modelling scale
- * @param scaleId the unique identifier for a scale
- * @param name the scale name
- * @param ratio the ratio between the real world and the model (e.g. 1/87 or 1:87)
- * @param gauge the scale gauge
- * @param description
- * @param standards the list of standards
- * @param metadata the scale metadata
+ * It represents a resource metadata
+ * @param version the resource version
+ * @param createdAt the creation timestamp for this resource
+ * @param lastModifiedAt the timestamp when this resource has been modified for the last time
  */
 @RecordBuilder
-public record Scale(
-        ScaleId scaleId,
-        String name,
-        BigDecimal ratio,
-        ScaleGauge gauge,
-        LocalizedText description,
-        List<ScaleStandard> standards,
-        Metadata metadata) {}
+public record Metadata(int version, ZonedDateTime createdAt, ZonedDateTime lastModifiedAt) {}

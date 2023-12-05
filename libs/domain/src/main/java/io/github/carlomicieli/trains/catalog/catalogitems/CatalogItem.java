@@ -21,6 +21,7 @@
 package io.github.carlomicieli.trains.catalog.catalogitems;
 
 import io.github.carlomicieli.trains.data.LocalizedText;
+import io.github.carlomicieli.trains.data.Metadata;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import java.util.List;
 
@@ -39,6 +40,7 @@ import java.util.List;
  * @param availabilityStatus
  * @param rollingStocks
  * @param count the number of rolling stocks for this catalog item
+ * @param metadata the catalog item metadata
  */
 @RecordBuilder
 public record CatalogItem(
@@ -54,4 +56,5 @@ public record CatalogItem(
         String deliveryDate,
         AvailabilityStatus availabilityStatus,
         List<RollingStock> rollingStocks,
-        Integer count) {}
+        Integer count,
+        Metadata metadata) {}

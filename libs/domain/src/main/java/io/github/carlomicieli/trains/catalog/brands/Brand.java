@@ -23,6 +23,7 @@ package io.github.carlomicieli.trains.catalog.brands;
 import io.github.carlomicieli.trains.data.Address;
 import io.github.carlomicieli.trains.data.ContactInfo;
 import io.github.carlomicieli.trains.data.LocalizedText;
+import io.github.carlomicieli.trains.data.Metadata;
 import io.github.carlomicieli.trains.data.OrganizationEntityType;
 import io.github.carlomicieli.trains.data.Socials;
 import io.soabase.recordbuilder.core.RecordBuilder;
@@ -41,6 +42,7 @@ import java.util.Objects;
  * @param address the main address
  * @param contactInfo the contact info
  * @param socials the social handlers
+ * @param metadata the brand metadata
  */
 @RecordBuilder
 public record Brand(
@@ -54,7 +56,8 @@ public record Brand(
         LocalizedText description,
         Address address,
         ContactInfo contactInfo,
-        Socials socials) {
+        Socials socials,
+        Metadata metadata) {
 
     public Brand {
         Objects.requireNonNull(brandId);
