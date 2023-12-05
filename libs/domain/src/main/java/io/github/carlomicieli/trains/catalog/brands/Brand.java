@@ -25,6 +25,7 @@ import io.github.carlomicieli.trains.data.ContactInfo;
 import io.github.carlomicieli.trains.data.LocalizedText;
 import io.github.carlomicieli.trains.data.OrganizationEntityType;
 import io.github.carlomicieli.trains.data.Socials;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import java.util.Objects;
 
 /**
@@ -41,6 +42,7 @@ import java.util.Objects;
  * @param contactInfo the contact info
  * @param socials the social handlers
  */
+@RecordBuilder
 public record Brand(
         BrandId brandId,
         String name,

@@ -13,9 +13,16 @@ repositories {
 }
 
 dependencies {
-    constraints {
-        implementation("org.apache.commons:commons-text:1.10.0")
+    versionCatalogs.named("libs")
+        .findLibrary("record-builder-processor")
+        .ifPresent {
+        annotationProcessor(it)
     }
+    versionCatalogs.named("libs")
+        .findLibrary("record-builder")
+        .ifPresent {
+            implementation(it)
+        }
 }
 
 testing {
