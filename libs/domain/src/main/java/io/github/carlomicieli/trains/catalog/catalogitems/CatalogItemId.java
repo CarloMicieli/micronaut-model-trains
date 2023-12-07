@@ -20,8 +20,19 @@
  */
 package io.github.carlomicieli.trains.catalog.catalogitems;
 
+import io.github.carlomicieli.util.Strings;
+
 /**
  * It represents the unique identifier for this catalog item
  * @param value the value
  */
-public record CatalogItemId(String value) {}
+public record CatalogItemId(String value) {
+    public CatalogItemId {
+        Strings.requireNonBlank(value, "catalog item id cannot be null or blank");
+    }
+
+    @Override
+    public String toString() {
+        return value;
+    }
+}

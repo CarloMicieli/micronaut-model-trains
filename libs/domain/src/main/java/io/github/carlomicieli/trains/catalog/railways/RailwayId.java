@@ -20,8 +20,19 @@
  */
 package io.github.carlomicieli.trains.catalog.railways;
 
+import io.github.carlomicieli.util.Strings;
+
 /**
  * the railway unique identifier (an url encoded string)
  * @param value the value
  */
-public record RailwayId(String value) {}
+public record RailwayId(String value) {
+    public RailwayId {
+        Strings.requireNonBlank(value, "railway id cannot be null or blank");
+    }
+
+    @Override
+    public String toString() {
+        return value;
+    }
+}

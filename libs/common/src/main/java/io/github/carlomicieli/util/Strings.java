@@ -18,21 +18,25 @@
  *    specific language governing permissions and limitations
  *    under the License.
  */
-package io.github.carlomicieli.trains.catalog.scales;
+package io.github.carlomicieli.util;
 
-import io.github.carlomicieli.util.Strings;
-
-/**
- * the scale unique identifier (an url encoded string)
- * @param value the value
- */
-public record ScaleId(String value) {
-    public ScaleId {
-        Strings.requireNonBlank(value, "scale id cannot be null or blank");
+public final class Strings {
+    /**
+     * Checks that the specified String value is not blank and throws an IllegalArgumentException if it is.
+     * @param input the value to check
+     */
+    public static void requireNonBlank(String input) {
+        requireNonBlank(input, "input cannot be blank");
     }
 
-    @Override
-    public String toString() {
-        return value;
+    /**
+     * Checks that the specified String value is not blank and throws an IllegalArgumentException if it is.
+     * @param input the value to check
+     * @param message detail message to be used in the event that a IllegalArgumentException is thrown
+     */
+    public static void requireNonBlank(String input, String message) {
+        if (input == null || input.isBlank()) {
+            throw new IllegalArgumentException(message);
+        }
     }
 }

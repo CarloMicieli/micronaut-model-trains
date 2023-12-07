@@ -20,16 +20,29 @@
  */
 package io.github.carlomicieli.trains.catalog.catalogitems;
 
-import java.util.Objects;
-import java.util.UUID;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 
-public record RollingStockId(UUID value) {
-    public RollingStockId {
-        Objects.requireNonNull(value, "rolling stock id cannot be null");
+import java.util.UUID;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+@DisplayName("RollingStockId")
+class RollingStockIdTest {
+    @Test
+    void shouldThrowNullPointerExceptionWhenRollingStockIdIsNull() {
+        NullPointerException exception =
+                assertThrowsExactly(NullPointerException.class, () -> new RollingStockId(null));
+        assertNotNull(exception);
+        assertEquals("rolling stock id cannot be null", exception.getMessage());
     }
 
-    @Override
-    public String toString() {
-        return value.toString();
+    @Test
+    void shouldCreateNewRollingStockIdIds() {
+        UUID idValue = UUID.randomUUID();
+        RollingStockId id = new RollingStockId(idValue);
+        assertEquals(idValue, id.value());
+        assertEquals(idValue.toString(), id.toString());
     }
 }

@@ -20,8 +20,19 @@
  */
 package io.github.carlomicieli.trains.catalog.brands;
 
+import io.github.carlomicieli.util.Strings;
+
 /**
  * the brand unique identifier (an url encoded string)
  * @param value the value
  */
-public record BrandId(String value) {}
+public record BrandId(String value) {
+    public BrandId {
+        Strings.requireNonBlank(value, "brand id cannot be null or blank");
+    }
+
+    @Override
+    public String toString() {
+        return value;
+    }
+}
