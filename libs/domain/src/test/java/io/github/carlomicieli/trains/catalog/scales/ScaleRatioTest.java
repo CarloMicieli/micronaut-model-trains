@@ -20,26 +20,28 @@
  */
 package io.github.carlomicieli.trains.catalog.scales;
 
-import io.github.carlomicieli.util.BigDecimals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import java.math.BigDecimal;
-import java.util.Objects;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
-/**
- * It represents the ratio between the real world and the model (e.g. 1/87 or 1:87)
- * @param value the ratio value
- */
-public record ScaleRatio(BigDecimal value) {
-    public ScaleRatio {
-        Objects.requireNonNull(value);
-        BigDecimals.requirePositive(value);
+@DisplayName("ScaleRatio")
+class ScaleRatioTest {
+    @Test
+    void shouldCreateScaleRatios() {
+        ScaleRatio scaleRatio = ScaleRatio.of(87f);
+        assertNotNull(scaleRatio);
+        assertEquals(BigDecimal.valueOf(87), scaleRatio.value());
     }
 
-    @Override
-    public String toString() {
-        return String.format("1:%s", value);
-    }
+    @Test
+    void shouldProduceStringRepresentationForScaleRatios() {
+        ScaleRatio halfZero = ScaleRatios.H0_RATIO;
+        ScaleRatio zero = ScaleRatios.O_RATIO;
 
-    public static ScaleRatio of(float value) {
-        return ScaleRatios.get(value).orElseGet(() -> new ScaleRatio(BigDecimal.valueOf(value)));
+        assertEquals("1:87", halfZero.toString());
+        assertEquals("1:43.5", zero.toString());
     }
 }

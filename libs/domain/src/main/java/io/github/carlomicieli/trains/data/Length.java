@@ -20,10 +20,13 @@
  */
 package io.github.carlomicieli.trains.data;
 
+import io.github.carlomicieli.util.BigDecimals;
 import java.math.BigDecimal;
 import java.util.Objects;
 
 public sealed interface Length {
+    BigDecimal value();
+
     default MeasureUnit measureUnit() {
         return switch (this) {
             case Inches in -> MeasureUnit.INCHES;
@@ -48,12 +51,32 @@ public sealed interface Length {
     }
 }
 
-record Millimeters(BigDecimal value) implements Length {}
+record Millimeters(BigDecimal value) implements Length {
+    public Millimeters {
+        BigDecimals.requirePositive(value);
+    }
+}
 
-record Meters(BigDecimal value) implements Length {}
+record Meters(BigDecimal value) implements Length {
+    public Meters {
+        BigDecimals.requirePositive(value);
+    }
+}
 
-record Miles(BigDecimal value) implements Length {}
+record Miles(BigDecimal value) implements Length {
+    public Miles {
+        BigDecimals.requirePositive(value);
+    }
+}
 
-record Inches(BigDecimal value) implements Length {}
+record Inches(BigDecimal value) implements Length {
+    public Inches {
+        BigDecimals.requirePositive(value);
+    }
+}
 
-record Kilometers(BigDecimal value) implements Length {}
+record Kilometers(BigDecimal value) implements Length {
+    public Kilometers {
+        BigDecimals.requirePositive(value);
+    }
+}

@@ -18,28 +18,16 @@
  *    specific language governing permissions and limitations
  *    under the License.
  */
-package io.github.carlomicieli.trains.catalog.scales;
+package io.github.carlomicieli.util;
 
-import io.github.carlomicieli.util.BigDecimals;
-import java.math.BigDecimal;
-import java.util.Objects;
-
-/**
- * It represents the ratio between the real world and the model (e.g. 1/87 or 1:87)
- * @param value the ratio value
- */
-public record ScaleRatio(BigDecimal value) {
-    public ScaleRatio {
-        Objects.requireNonNull(value);
-        BigDecimals.requirePositive(value);
-    }
-
-    @Override
-    public String toString() {
-        return String.format("1:%s", value);
-    }
-
-    public static ScaleRatio of(float value) {
-        return ScaleRatios.get(value).orElseGet(() -> new ScaleRatio(BigDecimal.valueOf(value)));
+public final class Floats {
+    /**
+     * Checks that the specified float value is positive and throws an IllegalArgumentException if it is.
+     * @param input the value to check
+     */
+    public static void requirePositive(float input) {
+        if (input <= 0) {
+            throw new IllegalArgumentException("input must be positive");
+        }
     }
 }
