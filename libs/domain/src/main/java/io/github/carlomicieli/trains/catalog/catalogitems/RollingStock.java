@@ -50,6 +50,7 @@ public sealed interface RollingStock {
      * @param dccInterface the DCC interface
      * @param livery the rolling stock livery description
      * @param lengthOverBuffers the length over buffers
+     * @param technicalSpecifications the rolling stock technical specifications
      */
     record ElectricMultipleUnit(
             RollingStockId rollingStockId,
@@ -62,7 +63,8 @@ public sealed interface RollingStock {
             Control control,
             DccInterface dccInterface,
             String livery,
-            LengthOverBuffers lengthOverBuffers)
+            LengthOverBuffers lengthOverBuffers,
+            TechnicalSpecifications technicalSpecifications)
             implements RollingStock {
         public ElectricMultipleUnit {
             Objects.requireNonNull(rollingStockId);
@@ -80,6 +82,7 @@ public sealed interface RollingStock {
      * @param freightCarType the freight car type
      * @param livery the rolling stock livery description
      * @param lengthOverBuffers the length over buffers
+     * @param technicalSpecifications the rolling stock technical specifications
      */
     record FreightCar(
             RollingStockId rollingStockId,
@@ -88,7 +91,8 @@ public sealed interface RollingStock {
             String roadNumber,
             FreightCarType freightCarType,
             String livery,
-            LengthOverBuffers lengthOverBuffers)
+            LengthOverBuffers lengthOverBuffers,
+            TechnicalSpecifications technicalSpecifications)
             implements RollingStock {
         public FreightCar {
             Objects.requireNonNull(rollingStockId);
@@ -110,6 +114,7 @@ public sealed interface RollingStock {
      * @param depot the depot name
      * @param livery the rolling stock livery description
      * @param lengthOverBuffers the length over buffers
+     * @param technicalSpecifications the rolling stock technical specifications
      */
     record Locomotive(
             RollingStockId rollingStockId,
@@ -122,7 +127,8 @@ public sealed interface RollingStock {
             DccInterface dccInterface,
             String depot,
             String livery,
-            LengthOverBuffers lengthOverBuffers)
+            LengthOverBuffers lengthOverBuffers,
+            TechnicalSpecifications technicalSpecifications)
             implements RollingStock {
         public Locomotive {
             Objects.requireNonNull(rollingStockId);
@@ -142,6 +148,7 @@ public sealed interface RollingStock {
      * @param livery the rolling stock livery description
      * @param serviceLevel the service level
      * @param lengthOverBuffers the length over buffers
+     * @param technicalSpecifications the rolling stock technical specifications
      */
     record PassengerCar(
             RollingStockId rollingStockId,
@@ -152,7 +159,8 @@ public sealed interface RollingStock {
             PassengerCarType passengerCarType,
             String livery,
             ServiceLevel serviceLevel,
-            LengthOverBuffers lengthOverBuffers)
+            LengthOverBuffers lengthOverBuffers,
+            TechnicalSpecifications technicalSpecifications)
             implements RollingStock {
         public PassengerCar {
             Objects.requireNonNull(rollingStockId);
@@ -174,6 +182,7 @@ public sealed interface RollingStock {
      * @param dccInterface the DCC interface
      * @param livery the rolling stock livery description
      * @param lengthOverBuffers the length over buffers
+     * @param technicalSpecifications the rolling stock technical specifications
      */
     record Railcar(
             RollingStockId rollingStockId,
@@ -186,7 +195,8 @@ public sealed interface RollingStock {
             DccInterface dccInterface,
             Control control,
             String livery,
-            LengthOverBuffers lengthOverBuffers)
+            LengthOverBuffers lengthOverBuffers,
+            TechnicalSpecifications technicalSpecifications)
             implements RollingStock {
         public Railcar {
             Objects.requireNonNull(rollingStockId);
