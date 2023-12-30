@@ -21,13 +21,10 @@
 package io.github.carlomicieli.trains.catalog.catalogitems;
 
 import io.github.carlomicieli.trains.data.LocalizedText;
-import io.github.carlomicieli.trains.data.Metadata;
-import io.soabase.recordbuilder.core.RecordBuilder;
 import java.util.List;
 
 /**
- * It represents a model railway catalog item
- * @param catalogItemId the unique identifier for this catalog item
+ * It represents the request to create/update catalog items
  * @param brand
  * @param itemNumber the catalog item number
  * @param epoch the epoch for this rolling stock
@@ -40,11 +37,8 @@ import java.util.List;
  * @param availabilityStatus
  * @param rollingStocks
  * @param count the number of rolling stocks for this catalog item
- * @param metadata the catalog item metadata
  */
-@RecordBuilder
-public record CatalogItem(
-        CatalogItemId catalogItemId,
+public record CatalogItemRequest(
         CatalogItemBrand brand,
         String itemNumber,
         Epoch epoch,
@@ -55,6 +49,5 @@ public record CatalogItem(
         PowerMethod powerMethod,
         String deliveryDate,
         AvailabilityStatus availabilityStatus,
-        List<RollingStock> rollingStocks,
-        Integer count,
-        Metadata metadata) {}
+        List<RollingStockRequest> rollingStocks,
+        Integer count) {}

@@ -22,24 +22,10 @@ package io.github.carlomicieli.trains.catalog.catalogitems;
 
 import java.util.Objects;
 
-public sealed interface RollingStock {
-    /**
-     * Returns the category for this rolling stock
-     * @return the category
-     */
-    default RollingStockCategory category() {
-        return switch (this) {
-            case ElectricMultipleUnit e -> RollingStockCategory.ELECTRIC_MULTIPLE_UNITS;
-            case FreightCar f -> RollingStockCategory.FREIGHT_CARS;
-            case Locomotive l -> RollingStockCategory.LOCOMOTIVES;
-            case PassengerCar p -> RollingStockCategory.PASSENGER_CARS;
-            case Railcar r -> RollingStockCategory.RAILCARS;
-        };
-    }
+public sealed interface RollingStockRequest {
 
     /**
      * It represents an electric multiple unit rolling stock
-     * @param rollingStockId the unique identifier for this rolling stock
      * @param railway the railway company
      * @param typeName the electric multiple unit type name
      * @param roadNumber the identification marking for this electric multiple unit
@@ -53,7 +39,6 @@ public sealed interface RollingStock {
      * @param technicalSpecifications the rolling stock technical specifications
      */
     record ElectricMultipleUnit(
-            RollingStockId rollingStockId,
             RollingStockRailway railway,
             String typeName,
             String roadNumber,
@@ -65,9 +50,8 @@ public sealed interface RollingStock {
             String livery,
             LengthOverBuffers lengthOverBuffers,
             TechnicalSpecifications technicalSpecifications)
-            implements RollingStock {
+            implements RollingStockRequest {
         public ElectricMultipleUnit {
-            Objects.requireNonNull(rollingStockId);
             Objects.requireNonNull(railway);
             Objects.requireNonNull(typeName);
         }
@@ -75,7 +59,6 @@ public sealed interface RollingStock {
 
     /**
      * It represents a freight car rolling stock
-     * @param rollingStockId the unique identifier for this rolling stock
      * @param railway the railway company
      * @param typeName the freight car type name
      * @param roadNumber the identification marking for this freight car
@@ -85,7 +68,6 @@ public sealed interface RollingStock {
      * @param technicalSpecifications the rolling stock technical specifications
      */
     record FreightCar(
-            RollingStockId rollingStockId,
             RollingStockRailway railway,
             String typeName,
             String roadNumber,
@@ -93,9 +75,8 @@ public sealed interface RollingStock {
             String livery,
             LengthOverBuffers lengthOverBuffers,
             TechnicalSpecifications technicalSpecifications)
-            implements RollingStock {
+            implements RollingStockRequest {
         public FreightCar {
-            Objects.requireNonNull(rollingStockId);
             Objects.requireNonNull(railway);
             Objects.requireNonNull(typeName);
         }
@@ -103,7 +84,6 @@ public sealed interface RollingStock {
 
     /**
      * It represents a locomotive rolling stock
-     * @param rollingStockId the unique identifier for this rolling stock
      * @param railway the railway company
      * @param className the class of locomotives. The class is a group of locomotives built to a common design, typically for a single railroad or railway
      * @param roadNumber the identification marking for this locomotive
@@ -117,7 +97,6 @@ public sealed interface RollingStock {
      * @param technicalSpecifications the rolling stock technical specifications
      */
     record Locomotive(
-            RollingStockId rollingStockId,
             RollingStockRailway railway,
             String className,
             String roadNumber,
@@ -129,9 +108,8 @@ public sealed interface RollingStock {
             String livery,
             LengthOverBuffers lengthOverBuffers,
             TechnicalSpecifications technicalSpecifications)
-            implements RollingStock {
+            implements RollingStockRequest {
         public Locomotive {
-            Objects.requireNonNull(rollingStockId);
             Objects.requireNonNull(railway);
             Objects.requireNonNull(className);
         }
@@ -139,7 +117,6 @@ public sealed interface RollingStock {
 
     /**
      * It represents a passenger car rolling stock
-     * @param rollingStockId the unique identifier for this rolling stock
      * @param railway the railway company
      * @param typeName the passenger car type name
      * @param roadNumber the identification marking for this passenger car
@@ -151,7 +128,6 @@ public sealed interface RollingStock {
      * @param technicalSpecifications the rolling stock technical specifications
      */
     record PassengerCar(
-            RollingStockId rollingStockId,
             RollingStockRailway railway,
             String typeName,
             String roadNumber,
@@ -161,9 +137,8 @@ public sealed interface RollingStock {
             ServiceLevel serviceLevel,
             LengthOverBuffers lengthOverBuffers,
             TechnicalSpecifications technicalSpecifications)
-            implements RollingStock {
+            implements RollingStockRequest {
         public PassengerCar {
-            Objects.requireNonNull(rollingStockId);
             Objects.requireNonNull(railway);
             Objects.requireNonNull(typeName);
         }
@@ -171,7 +146,6 @@ public sealed interface RollingStock {
 
     /**
      * It represents a railcar rolling stock
-     * @param rollingStockId the unique identifier for this rolling stock
      * @param railway the railway company
      * @param typeName the railcar type name
      * @param roadNumber the identification marking for this railcar
@@ -185,7 +159,6 @@ public sealed interface RollingStock {
      * @param technicalSpecifications the rolling stock technical specifications
      */
     record Railcar(
-            RollingStockId rollingStockId,
             RollingStockRailway railway,
             String typeName,
             String roadNumber,
@@ -197,9 +170,8 @@ public sealed interface RollingStock {
             String livery,
             LengthOverBuffers lengthOverBuffers,
             TechnicalSpecifications technicalSpecifications)
-            implements RollingStock {
+            implements RollingStockRequest {
         public Railcar {
-            Objects.requireNonNull(rollingStockId);
             Objects.requireNonNull(railway);
             Objects.requireNonNull(typeName);
         }
