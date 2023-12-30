@@ -20,21 +20,12 @@
  */
 package io.github.carlomicieli.trains.catalog.brands;
 
-import io.github.carlomicieli.util.Strings;
 import io.micronaut.serde.annotation.Serdeable;
+import java.util.List;
 
 /**
- * the brand unique identifier (an url encoded string)
- * @param value the value
+ * It represents a brands list
+ * @param items the items
  */
-@Serdeable
-public record BrandId(String value) {
-    public BrandId {
-        Strings.requireNonBlank(value, "brand id cannot be null or blank");
-    }
-
-    @Override
-    public String toString() {
-        return value;
-    }
-}
+@Serdeable.Serializable
+public record BrandsList(List<Brand> items) {}

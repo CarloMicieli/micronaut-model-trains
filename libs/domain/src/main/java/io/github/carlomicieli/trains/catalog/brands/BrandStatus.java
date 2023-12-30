@@ -20,9 +20,12 @@
  */
 package io.github.carlomicieli.trains.catalog.brands;
 
+import io.micronaut.serde.annotation.Serdeable;
+
 /**
  * the status of a brand
  */
+@Serdeable
 public enum BrandStatus {
     ACTIVE,
     OUT_OF_BUSINESS;

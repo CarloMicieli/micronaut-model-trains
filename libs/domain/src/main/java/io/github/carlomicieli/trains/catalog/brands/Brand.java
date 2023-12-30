@@ -26,6 +26,7 @@ import io.github.carlomicieli.trains.data.LocalizedText;
 import io.github.carlomicieli.trains.data.Metadata;
 import io.github.carlomicieli.trains.data.OrganizationEntityType;
 import io.github.carlomicieli.trains.data.Socials;
+import io.micronaut.serde.annotation.Serdeable;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import java.util.Objects;
 
@@ -45,6 +46,7 @@ import java.util.Objects;
  * @param metadata the brand metadata
  */
 @RecordBuilder
+@Serdeable.Serializable
 public record Brand(
         BrandId brandId,
         String name,

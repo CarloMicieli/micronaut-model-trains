@@ -1,4 +1,4 @@
 plugins {
     id("io.github.carlomicieli.trains.java-common-conventions")
-    `java-library`
+    id("io.micronaut.library")
 }

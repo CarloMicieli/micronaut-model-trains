@@ -20,9 +20,12 @@
  */
 package io.github.carlomicieli.trains.catalog.brands;
 
+import io.micronaut.serde.annotation.Serdeable;
+
 /**
  * The kinds of brand
  */
+@Serdeable
 public enum BrandKind {
     BRASS_MODELS,
     INDUSTRIAL;

@@ -18,23 +18,14 @@
  *    specific language governing permissions and limitations
  *    under the License.
  */
-package io.github.carlomicieli.trains.catalog.brands;
+package io.github.carlomicieli.trains.catalog.railways;
 
-import io.github.carlomicieli.util.Strings;
 import io.micronaut.serde.annotation.Serdeable;
+import java.util.List;
 
 /**
- * the brand unique identifier (an url encoded string)
- * @param value the value
+ * It represents a list of railways
+ * @param items the railways
  */
-@Serdeable
-public record BrandId(String value) {
-    public BrandId {
-        Strings.requireNonBlank(value, "brand id cannot be null or blank");
-    }
-
-    @Override
-    public String toString() {
-        return value;
-    }
-}
+@Serdeable.Serializable
+public record RailwaysList(List<Railway> items) {}
