@@ -1,5 +1,5 @@
 # This is a Gradle generated file for dependency locking.
 # Manual edits can break the build and are not advised.
 # This file is expected to be part of source control.
-io.soabase.record-builder:record-builder-core:37=compileClasspath
+io.soabase.record-builder:record-builder-core:38=compileClasspath
 empty=
